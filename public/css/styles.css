@@ -1,0 +1,551 @@
+/* styles.css - ESTILO PROFESIONAL, LIMPIO Y DEFINITIVO */
+
+/* --- 1. Variables y Reset --- */
+:root {
+    --primary: #2563eb;          /* Azul Real moderno */
+    --primary-dark: #1e40af;     /* Azul oscuro para hover */
+    --accent: #0ea5e9;           /* Celeste brillante */
+    --dark: #0f172a;             /* Azul noche profundo */
+    --dark-light: #1e293b;       /* Gris azulado (Nav) */
+    --text-main: #334155;        /* Texto principal gris oscuro */
+    --text-muted: #64748b;       /* Texto secundario */
+    --success: #10b981;          /* Verde */
+    --danger: #ef4444;           /* Rojo */
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8fafc; /* Fondo general muy claro */
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+main { flex: 1; width: 100%; }
+a { text-decoration: none; transition: all 0.3s ease; }
+
+/* --- 2. Navegación (Navbar) --- */
+nav {
+    background-color: var(--dark);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav::before {
+    content: "PTY.Projects";
+    color: white;
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+nav a {
+    color: #cbd5e1;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+nav a:hover { color: white; transform: translateY(-2px); }
+
+/* Etiquetas de usuario */
+.user-tag {
+    background: rgba(255,255,255,0.1);
+    padding: 5px 12px;
+    border-radius: 20px;
+    color: var(--accent);
+    font-size: 0.85rem;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.logout-btn {
+    background: var(--danger);
+    color: white !important;
+    padding: 6px 15px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+}
+.logout-btn:hover { background: #dc2626; }
+
+/* --- 3. HERO SECTION (ACTUALIZADO: CLARO Y LIMPIO) --- */
+.hero {
+    background: #f8fafc;        /* Fondo claro */
+    color: var(--dark);         /* Texto oscuro */
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    color: var(--dark);
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+/* --- 4. BOTONES --- */
+/* Botón Principal (Azul) */
+.btn-cta {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-cta:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.5);
+}
+
+/* Botón Secundario (Borde oscuro) */
+.btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: var(--dark);
+    padding: 12px 30px;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+.btn-secondary:hover {
+    border-color: var(--dark);
+    background: var(--dark);
+    color: white;
+}
+
+/* --- 5. SECCIONES Y TARJETAS --- */
+.section-title {
+    text-align: center;
+    color: var(--dark);
+    font-size: 2.5rem;
+    margin: 40px 0;
+    font-weight: 700;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.feature-item {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s;
+}
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    border-color: var(--primary);
+}
+
+.feature-item .icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.price-tag {
+    background: #f1f5f9;
+    color: var(--primary);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* --- 6. CHATBOT (SOLUCIÓN DEFINITIVA CON CLASES) --- */
+/* Reemplaza #chat-btn con .chat-fixed-btn */
+.chat-fixed-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(37, 99, 235, 0.4);
+    z-index: 99999;
+    transition: transform 0.3s;
+}
+.chat-fixed-btn:hover { 
+    transform: scale(1.1); 
+}
+
+/* Reemplaza #chat-window con .chat-window-fixed */
+.chat-window-fixed {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 320px; /* Ajustado a 320px para el diseño limpio */
+    height: 450px; /* Ajustado a 450px para el diseño limpio */
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e2e8f0;
+    z-index: 99999;
+    
+    /* Propiedades Flex y estado inicial */
+    display: none; 
+    flex-direction: column; /* CRUCIAL para apilar header, body, footer */
+    overflow: hidden;
+}
+
+/* Estilos internos de la ventana de Chatbot */
+
+.chat-header { 
+    background: var(--primary); 
+    color: white; 
+    padding: 15px; 
+    font-weight: bold;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+.chat-header-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.chat-header-status span {
+    width: 10px; 
+    height: 10px; 
+    background: #4ade80; /* Verde de estado */
+    border-radius: 50%;
+}
+.chat-close-btn {
+    cursor: pointer; 
+    font-size: 1.5rem; 
+    line-height: 1;
+}
+
+.chat-body-content {
+    flex: 1; /* Ocupa el espacio restante */
+    padding: 15px; 
+    overflow-y: auto; 
+    background: #f8fafc; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px;
+}
+
+.chat-initial-msg {
+    background: #e2e8f0;
+    color: var(--text-main);
+    align-self: flex-start;
+    border-radius: 12px;
+    padding: 10px 15px;
+    max-width: 85%;
+    font-size: 0.95rem;
+}
+
+.chat-footer-input {
+    padding: 15px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    background: white;
+    align-items: center;
+}
+.chat-input-field {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 20px;
+    outline: none;
+}
+.chat-send-btn {
+    background: var(--primary); 
+    color: white; 
+    border: none; 
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    margin-left: 10px; 
+    cursor: pointer; 
+    font-size: 1.2rem;
+}
+
+/* Estilos para las burbujas generadas por JS */
+.chat-bubble {
+    padding: 10px 15px;
+    border-radius: 12px;
+    max-width: 85%;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+.chat-bubble-user {
+    background: var(--primary);
+    color: white;
+    align-self: flex-end; /* Alinea a la derecha */
+}
+.chat-bubble-bot {
+    background: #e2e8f0;
+    color: var(--text-main);
+    align-self: flex-start; /* Alinea a la izquierda */
+}
+
+
+/* --- 7. FORMULARIOS (GENERAL) --- */
+.container-form {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid #e2e8f0;
+}
+.container-form input, .container-form select, .container-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    background: #f8fafc;
+}
+.container-form button {
+    width: 100%;
+    padding: 15px;
+    background: var(--dark);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- 8. FOOTER --- */
+footer {
+    background: var(--dark);
+    color: #94a3b8;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+
+/* --- 9. ESTILOS DE PRODUCTOS (GRID Y LISTA) --- */
+
+/* Estilos de Contenedor de Cuadros (Grid View) */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+.product-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Control de Imagen en Tarjetas (Modo Cuadros) */
+.product-grid .product-card img {
+    width: 100%;
+    max-height: 200px !important; /* <--- USAR !important TEMPORALMENTE PARA VERIFICAR */
+    object-fit: contain; 
+    border-bottom: 1px solid #e2e8f0;
+    padding: 15px;
+}
+.product-card .card-content {
+    padding: 20px;
+    flex-grow: 1; /* Permite que el contenido ocupe el espacio restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.product-card h3 {
+    font-size: 1.3rem; /* Título más grande */
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.product-card p {
+    font-size: 0.95rem; /* Descripción más legible */
+    color: var(--text-muted);
+}
+.product-card .price {
+    font-size: 1.5rem; /* Precio destacado */
+    font-weight: bold;
+    color: var(--primary-dark);
+}
+.product-card .stock {
+    font-weight: 500;
+    color: var(--success);
+}
+.product-card .add-btn {
+    width: 100%; /* Asegura que el botón ocupe todo el ancho de la tarjeta */
+}
+
+
+/* Estilos de Lista (List View) */
+.product-list {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    gap: 1px; 
+    border: 1px solid #e2e8f0; 
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Encabezado de la lista */
+.product-list-header {
+    display: grid;
+    /* Columnas: Imagen, Producto/Desc, Precio, Stock, Acción */
+    grid-template-columns: 100px 3fr 1fr 1fr 150px; 
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    background: var(--dark-light);
+    color: white;
+    font-weight: bold;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    /* Solo se aplica en modo lista (fuera del .product-list, pero alineado) */
+    width: 100%;
+}
+.product-list-header div {
+    text-align: left;
+}
+.product-list-header div:nth-child(3), .product-list-header div:nth-child(4) {
+    text-align: center;
+}
+
+/* Estilo de fila en modo lista (usando product-card) */
+.product-list .product-card {
+    display: grid;
+    /* Columnas: Imagen, Producto/Desc, Precio, Stock, Acción */
+    grid-template-columns: 100px 3fr 1fr 1fr 150px; 
+    align-items: center;
+    text-align: left;
+    padding: 10px 20px;
+    box-shadow: none;
+    border-bottom: 1px solid #e2e8f0;
+    border-left: 5px solid transparent; 
+    transition: border-left 0.3s, background-color 0.3s;
+    border-radius: 0;
+    flex-direction: row;
+}
+
+.product-list .product-card:last-child {
+    border-bottom: none;
+}
+
+.product-list .product-card:hover {
+    transform: none;
+    box-shadow: none;
+    background-color: #f0f4f7;
+    border-left: 5px solid var(--accent);
+}
+
+/* Imagen en modo lista */
+.product-list .product-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Contenido de la fila en modo lista (Producto/Desc) */
+.product-list .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-left: 20px;
+}
+.product-list .card-content h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+.product-list .card-content p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Ajuste de Precio y Stock en sus propias columnas en modo lista */
+.product-list .product-card > .price, 
+.product-list .product-card > .stock {
+    padding: 0 10px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+/* Estilos de Botones en modo lista (columna de acción) */
+.product-list .product-card > div:last-child {
+    padding-left: 10px;
+    text-align: center;
+}
+.product-list .add-btn, .product-list .btn-secondary {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
